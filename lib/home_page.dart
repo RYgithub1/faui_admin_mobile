@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'side_navigation.dart';
+import 'main_post.dart';
 
 
 
@@ -11,53 +13,16 @@ class HomePage extends StatefulWidget {
 
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
       body: Row(
         children: <Widget>[
-          /// [NavigationRail]
-          NavigationRail(
-            selectedIndex: _selectedIndex,
-            onDestinationSelected: (int indexNumber){
-              setState(() {
-                _selectedIndex =indexNumber;
-              });
-            },
-            destinations: [
-              NavigationRailDestination(
-                icon: Icon(Icons.thumbs_up_down),
-                selectedIcon: Icon(Icons.timeline),  // 選択時のicon変更
-                label: Text("Thums"),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.people),
-                selectedIcon: Icon(Icons.people_outline),
-                label: Text("People"),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.face),
-                selectedIcon: Icon(Icons.face_retouching_natural),
-                label: Text("Face"),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.bookmark),
-                selectedIcon: Icon(Icons.book),
-                label: Text("BookMark"),
-              ),
-            ],
-            
-            
-          )
-          /// [Main]
-
+          Expanded(flex:1, child: SideNavigation()), /// [NavigationRail]
+          VerticalDivider(thickness: 1, width: 3),  // 境界縦線VerticalDivider
+          Expanded(flex:5, child: MainPost()), /// [Main]
         ]
       )
-
-
     );
   }
 }

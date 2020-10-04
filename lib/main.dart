@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "admin_mobile",
-      theme: ThemeData.dark(),
+      // theme: ThemeData.dark(),
       home: HomePage(),
-    
+
     );
   }
 }
